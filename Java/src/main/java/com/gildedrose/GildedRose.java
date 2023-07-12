@@ -23,11 +23,6 @@ class GildedRose {
     }
 
     private static void adjustQuality(Item item) {
-        switch (item.name) {
-            case "Aged Brie" -> new AgedBrieQualityAdjuster().adjust(item);
-            case "Backstage passes to a TAFKAL80ETC concert" -> new BackstagePassQualityAdjuster().adjust(item);
-            case "Sulfuras, Hand of Ragnaros" -> new SulfurasQualityAdjuster().adjust(item);
-            default -> new DefaultQualityAdjuster().adjust(item);
-        }
+        QualityAdjusters.handle(item);
     }
 }

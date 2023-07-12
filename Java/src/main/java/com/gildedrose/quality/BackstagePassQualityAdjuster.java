@@ -5,6 +5,11 @@ import com.gildedrose.Item;
 public class BackstagePassQualityAdjuster implements QualityAdjuster {
 
     @Override
+    public boolean supports(Item item) {
+        return "Backstage passes to a TAFKAL80ETC concert".equals(item.name);
+    }
+
+    @Override
     public void adjust(Item item) {
         item.quality = Math.min(50, item.quality + 1);
         if (item.sellIn < 11) {
