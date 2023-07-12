@@ -11,10 +11,11 @@ public class AgedBrieQualityAdjuster implements QualityAdjuster {
 
     @Override
     public void adjust(Item item) {
-        item.quality = Math.min(50, item.quality + 1);
-        if (item.sellIn < 1) {
-            item.quality = Math.min(50, item.quality + 1);
-        }
+        item.quality = Math.min(50, item.quality + getAdjustment(item));
     }
 
+    private int getAdjustment(Item item) {
+        if (item.sellIn > 0) return 1;
+        else return 2;
+    }
 }

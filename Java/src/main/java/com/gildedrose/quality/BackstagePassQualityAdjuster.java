@@ -11,16 +11,14 @@ public class BackstagePassQualityAdjuster implements QualityAdjuster {
 
     @Override
     public void adjust(Item item) {
-        item.quality = Math.min(50, item.quality + 1);
-        if (item.sellIn < 11) {
-            item.quality = Math.min(50, item.quality + 1);
-        }
-        if (item.sellIn < 6) {
-            item.quality = Math.min(50, item.quality + 1);
-        }
-        if (item.sellIn < 1) {
-            item.quality = 0;
-        }
+        item.quality = Math.min(50, item.quality + getAdjustment(item));
+    }
+
+    private int getAdjustment(Item item) {
+        if (item.sellIn > 10) return 1;
+        if (item.sellIn > 5) return 2;
+        if (item.sellIn > 0) return 3;
+        return -item.quality;
     }
 
 }
