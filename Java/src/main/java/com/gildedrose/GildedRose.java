@@ -11,18 +11,18 @@ class GildedRose {
 
     public void updateQuality() {
         for (Item item : items) {
-            adjustQuality(item);
             adjustSellIn(item);
+            adjustQuality(item);
         }
     }
 
-    private static void adjustSellIn(Item item) {
+    private void adjustSellIn(Item item) {
         if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
             item.sellIn = item.sellIn - 1;
         }
     }
 
-    private static void adjustQuality(Item item) {
+    private void adjustQuality(Item item) {
         QualityAdjusters.handle(item);
     }
 }

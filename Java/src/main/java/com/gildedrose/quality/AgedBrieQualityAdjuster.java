@@ -15,7 +15,7 @@ public class AgedBrieQualityAdjuster implements QualityAdjuster {
     }
 
     private int getAdjustment(Item item) {
-        if (item.sellIn > 0) return 1;
+        if (item.sellIn >= 0) return 1;
         else return 2;
     }
 }

@@ -15,9 +15,9 @@ public class BackstagePassQualityAdjuster implements QualityAdjuster {
     }
 
     private int getAdjustment(Item item) {
-        if (item.sellIn > 10) return 1;
-        if (item.sellIn > 5) return 2;
-        if (item.sellIn > 0) return 3;
+        if (item.sellIn >= 10) return 1;
+        if (item.sellIn >= 5) return 2;
+        if (item.sellIn >= 0) return 3;
         return -item.quality;
     }
 

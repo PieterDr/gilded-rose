@@ -15,7 +15,7 @@ public class ConjuredItemQualityAdjuster implements QualityAdjuster {
     }
 
     private int getAdjustment(Item item) {
-        if (item.sellIn > 0) return -2;
+        if (item.sellIn >= 0) return -2;
         else return -4;
     }
 
