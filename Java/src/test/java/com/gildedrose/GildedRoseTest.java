@@ -29,6 +29,7 @@ class GildedRoseTest {
             "Aged Brie                                 | 10 | 9 | Aged Brie sellIn decreases by 1",
             "Backstage passes to a TAFKAL80ETC concert | 10 | 9 | Backstage pass sellIn decreases by 1",
             "Sulfuras, Hand Of Ragnaros                | 10 | 9 | Sulfuras sellIn does not change",
+            "Conjured item                             | 10 | 9 | Conjured item sellIn decreases by 1",
     })
     void sellInOfItemsIsUpdatedCorrectly(String name, int initialSellIn, int expectedSellIn, String displayName) {
         Item item = new Item(name, initialSellIn, 0);
@@ -61,6 +62,10 @@ class GildedRoseTest {
             "Backstage passes to a TAFKAL80ETC concert | 0  | 30 | 0  | Backstage pass becomes worthless after the concert",
             "Backstage passes to a TAFKAL80ETC concert | -1 | 30 | 0  | Backstage pass stays worthless after the concert",
             "Sulfuras, Hand of Ragnaros                | 40 | 80 | 80 | Sulfuras quality does not change",
+            "Conjured item                             | 10 | 20 | 18 | Conjured item quality decreases by 2",
+            "Conjured item                             | 0  | 20 | 16 | Conjured item quality decreases by 4 when it expires",
+            "Conjured item                             | -1 | 20 | 16 | Conjured item quality decreases by 4 if it is expired",
+            "Conjured item                             | 10 | 0  | 0  | Conjured item quality cannot drop below 0",
     })
     void qualityOfItemsIsUpdatedCorrectly(String name, int initialSellIn, int initialQuality, int expectedQuality, String displayName) {
         Item item = new Item(name, initialSellIn, initialQuality);

@@ -10,6 +10,7 @@ public class QualityAdjusters {
             new AgedBrieQualityAdjuster(),
             new BackstagePassQualityAdjuster(),
             new SulfurasQualityAdjuster(),
+            new ConjuredItemQualityAdjuster(),
             new DefaultQualityAdjuster()
     );
 
