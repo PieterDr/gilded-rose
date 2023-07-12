@@ -15,8 +15,7 @@ class GildedRose {
     }
 
     private static void adjustSellIn(Item item) {
-        if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
-        } else {
+        if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
             item.sellIn = item.sellIn - 1;
         }
     }
